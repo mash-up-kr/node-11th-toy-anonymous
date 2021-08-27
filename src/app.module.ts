@@ -13,7 +13,7 @@ import { UserModule } from './modules/user/user.module';
       username: 'root',
       password: 'root',
       database: 'test_db',
-      entities: [],
+      entities: [__dirname + '/**/*.entity.{js,ts}'],
       synchronize: true,
     }),
     UserModule,
