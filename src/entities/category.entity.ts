@@ -1,3 +1,4 @@
+import { Post } from './post.entity';
 import {
   Column,
   CreateDateColumn,
@@ -7,18 +8,14 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
-import { User } from './user.entity';
 
 @Entity()
-export class Company {
+export class Category {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ comment: '회사명' })
+  @Column({ unique: true })
   name: string;
-
-  @Column({ comment: '이메일 도메인 ex) naver.com ' })
-  domain: string;
 
   /**
    * Timestamp
@@ -35,6 +32,6 @@ export class Company {
   /**
    * Relations
    */
-  @OneToMany(() => User, (user) => user.company)
-  users: User[];
+  @OneToMany(() => Post, (post) => post.category)
+  posts: Post[];
 }

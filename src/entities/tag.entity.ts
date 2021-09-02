@@ -3,22 +3,17 @@ import {
   CreateDateColumn,
   DeleteDateColumn,
   Entity,
-  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
-import { User } from './user.entity';
 
 @Entity()
-export class Company {
+export class Tag {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ comment: '회사명' })
+  @Column({ unique: true })
   name: string;
-
-  @Column({ comment: '이메일 도메인 ex) naver.com ' })
-  domain: string;
 
   /**
    * Timestamp
@@ -31,10 +26,4 @@ export class Company {
 
   @DeleteDateColumn()
   deletedAt: Date;
-
-  /**
-   * Relations
-   */
-  @OneToMany(() => User, (user) => user.company)
-  users: User[];
 }
