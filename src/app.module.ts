@@ -9,6 +9,8 @@ import { CategoryModule } from './modules/category/category.module';
 import { TagModule } from './modules/tag/tag.module';
 import { PostModule } from './modules/post/post.module';
 import { CommentModule } from './modules/comment/comment.module';
+import { CommentController } from './modules/comment/comment.controller';
+import { CommentService } from './modules/comment/comment.service';
 import databaseConfig from './core/config/database.config';
 
 @Module({
@@ -28,7 +30,7 @@ import databaseConfig from './core/config/database.config';
     PostModule,
     CommentModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [AppController, CommentController],
+  providers: [AppService, CommentService],
 })
 export class AppModule {}
