@@ -12,7 +12,7 @@ export default registerAs(
       port: Number(process.env.DATABASE_POST ?? 3306),
       database: process.env.DATABASE_NAME ?? 'test',
       username: process.env.DATABASE_USER ?? 'root',
-      password: process.env.DATABASE_PASSWORD ?? 'a11201028@',
+      password: process.env.DATABASE_PASSWORD ?? 'test',
       entities: [path.join(__dirname, '..', '..') + '/**/*.entity.{js,ts}'],
       synchronize: process.env.NODE_ENV !== 'production',
       namingStrategy: new SnakeNamingStrategy(),
