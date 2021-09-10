@@ -27,7 +27,7 @@ export class Post {
   @Column({ comment: '내용' })
   content: string;
 
-  @Column()
+  @Column({ default: 0 })
   viewCount: number;
 
   /**
