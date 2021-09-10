@@ -32,8 +32,9 @@ export class CommentService {
     return await this.CommentRepository.save(comment);
   }
 
-  async getAll(postId): Promise<Comment[]> {
-    const comments = await this.CommentRepository.find(postId);
+  async getAll(postId: number): Promise<Comment[]> {
+    const post = await this.PostRepository.findOne(postId);
+    const comments = await this.CommentRepository.find({ post: post });
     return comments;
   }
 
