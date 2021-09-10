@@ -4,6 +4,7 @@ import {
   CreateDateColumn,
   DeleteDateColumn,
   Entity,
+  Index,
   ManyToOne,
   OneToMany,
   PrimaryGeneratedColumn,
@@ -19,8 +20,12 @@ export class User {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ unique: true })
+  @Index({ unique: true })
+  @Column()
   email: string;
+
+  @Column()
+  password: string;
 
   @Column()
   nickName: string;
