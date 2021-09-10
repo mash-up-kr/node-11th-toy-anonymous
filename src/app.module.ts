@@ -8,15 +8,17 @@ import { CompanyModule } from './modules/company/company.module';
 import { CategoryModule } from './modules/category/category.module';
 import { TagModule } from './modules/tag/tag.module';
 import { PostModule } from './modules/post/post.module';
-import { CommentModule } from './modules/comment/comment.module';
-import { CommentController } from './modules/comment/comment.controller';
-import { CommentService } from './modules/comment/comment.service';
+// import { CommentModule } from './modules/comment/comment.module';
+// import { CommentController } from './modules/comment/comment.controller';
+// import { CommentService } from './modules/comment/comment.service';
+import { AuthModule } from './modules/auth/auth.module';
 import databaseConfig from './core/config/database.config';
+import authConfig from './core/config/auth.config';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
-      load: [databaseConfig],
+      load: [databaseConfig, authConfig],
     }),
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
@@ -28,9 +30,10 @@ import databaseConfig from './core/config/database.config';
     CategoryModule,
     TagModule,
     PostModule,
-    CommentModule,
+    AuthModule,
+    // CommentModule,
   ],
-  controllers: [AppController, CommentController],
-  providers: [AppService, CommentService],
+  controllers: [AppController],
+  providers: [AppService],
 })
 export class AppModule {}
