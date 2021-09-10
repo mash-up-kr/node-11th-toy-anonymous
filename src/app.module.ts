@@ -8,10 +8,8 @@ import { CompanyModule } from './modules/company/company.module';
 import { CategoryModule } from './modules/category/category.module';
 import { TagModule } from './modules/tag/tag.module';
 import { PostModule } from './modules/post/post.module';
-// import { CommentModule } from './modules/comment/comment.module';
-// import { CommentController } from './modules/comment/comment.controller';
-// import { CommentService } from './modules/comment/comment.service';
 import { AuthModule } from './modules/auth/auth.module';
+import { CommentModule } from './modules/comment/comment.module';
 import databaseConfig from './core/config/database.config';
 import authConfig from './core/config/auth.config';
 
@@ -31,7 +29,7 @@ import authConfig from './core/config/auth.config';
     TagModule,
     PostModule,
     AuthModule,
-    // CommentModule,
+    CommentModule,
   ],
   controllers: [AppController],
   providers: [AppService],
