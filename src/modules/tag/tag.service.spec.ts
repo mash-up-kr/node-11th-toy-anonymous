@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { TagService } from './tag.service';
 
-describe('TagService', () => {
+describe.skip('TagService', () => {
   let service: TagService;
 
   beforeEach(async () => {
